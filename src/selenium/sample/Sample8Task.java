@@ -17,7 +17,7 @@ public class Sample8Task {
     @Before
     public void startingTests() throws Exception {
         // from Sample 1:
-        String libWithDriversLocation =  System.getProperty("user.dir") + "\\lib\\";
+        String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
         // declaration above:
         driver = new ChromeDriver();
@@ -37,5 +37,33 @@ public class Sample8Task {
 //         TODO:
 //        check the background of top 2 sections
 //        check h1 element font-size 64px
+
+
+//assertEquals("rgba(255, 221, 221, 1)";
+//driver.findElement(By.xpath("//*"))
+
+
+        driver.findElement(By.xpath("w3-half"));
+//assertEquals("rgba(0, 0, 0, 1)", h1.getCssValue("w3-container w3-pale-red"));
+        driver.findElement(By.xpath("w3-half"));
+//assertEquals("rgba(0, 0, 0, 1)", h1.getCssValue("w3-container w3-pale-red"));
+//assertEquals("64px", h1.getCssValue("font-size"));
+
+
     }
+
+/*
+ @Test
+    public void styleChecks() throws Exception {
+        WebElement h1 = driver.findElement(By.xpath("//h1"));
+        assertEquals("block", h1.getCssValue("display"));
+        assertEquals("rgba(0, 0, 0, 1)", h1.getCssValue("color"));
+        assertEquals("64px", h1.getCssValue("font-size"));
+        assertEquals("rgba(0, 0, 0, 0)", h1.getCssValue("background-color"));
+
+        WebElement div_h1 = driver.findElement(By.xpath("//div[h1]"));
+        assertEquals("rgba(241, 241, 241, 1)", div_h1.getCssValue("background-color"));
+    }
+ */
+
 }

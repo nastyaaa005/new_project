@@ -42,11 +42,21 @@ public class Sample7Task {
     public void selectCheckBox() throws Exception {
 //         TODO:
 //        check that none of the checkboxes are ticked
+
 //        tick  "Option 2"
 //        check that "Option 1" and "Option 3' are not ticked, but "Option 2" is ticked
 //        tick  "Option 3"
 //        click result
 //        check that text 'You selected value(s): Option 2, Option 3' is being displayed
+
+        driver.findElement(By.id("vfb-6-1")).click();
+        assertFalse(driver.findElement(By.id("vfb-6-0")).isSelected());
+        assertFalse(driver.findElement(By.id("vfb-6-2")).isSelected());
+        assertTrue(driver.findElement(By.id("vfb-6-1")).isSelected());
+        driver.findElement(By.id("vfb-6-2")).click();
+        driver.findElement(By.id("result_button_checkbox")).click();
+        assertTrue(driver.findElement(By.id("result_checkbox")).getText().equals("You selected value(s): Option 2, Option 3"));
+
     }
 
 
@@ -60,6 +70,17 @@ public class Sample7Task {
 //        check that "Option 2" and "Option 3' are not select, but "Option 1" is selected
 //        click result
 //        check that 'You selected option: Option 1' text is being displayed
+
+        driver.findElement(By.id("vfb-7-3")).click();
+        assertFalse(driver.findElement(By.id("vfb-7-1")).isSelected());
+        assertFalse(driver.findElement(By.id("vfb-7-2")).isSelected());
+        assertTrue(driver.findElement(By.id("vfb-7-3")).isSelected());
+        driver.findElement(By.id("vfb-7-1")).click();
+        assertFalse(driver.findElement(By.id("vfb-7-2")).isSelected());
+        assertFalse(driver.findElement(By.id("vfb-7-3")).isSelected());
+        assertTrue(driver.findElement(By.id("vfb-7-1")).isSelected());
+        driver.findElement(By.id("result_button_ratio")).click();
+        assertEquals("You selected option: Option 1", driver.findElement(By.id("result_radio")).getText());
     }
 
     @Test
@@ -71,6 +92,20 @@ public class Sample7Task {
 //        check that selected option is "Option 2"
 //        click result
 //        check that 'You selected option: Option 2' text is being displayed
+
+
+
+        Select mySelector = new Select(driver.findElement(By.id("vfb-12")));
+        mySelector.selectByValue("value3");
+        assertEquals("Option 2", mySelector.getFirstSelectedOption().getText());
+
+
+        assertEquals( "Option 3", mySelector.getFirstSelectedOption().getText());
+        driver.findElement(By.id("vfb-12"));
+        driver.findElement(By.id("result_button_select")).click();
+        assertTrue(driver.findElement(By.id("result_button_select")).getText().equals("You selected option: Option 2"));
+
+
     }
 
     @Test

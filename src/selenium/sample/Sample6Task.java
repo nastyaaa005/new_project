@@ -45,24 +45,24 @@ public class Sample6Task {
         System.out.println(driver.findElement(By.xpath("//*[@id=\"heading_2\"]")).getText());
         System.out.println(driver.findElement(By.xpath("//*[@id=\"heading_2\"]")).getText());
 
-        "Test Text 1"
+//        "Test Text 1"
         System.out.println(driver.findElement(By.xpath("//*[@class=\"test\"]")));
-
-        "Test Text 3"
+//
+//        "Test Text 3"
         System.out.println(driver.findElement(By.xpath("//p[text()='Test Text3']")));
-
-        "Test Text 5"
+//
+//        "Test Text 5"
         System.out.println(driver.findElement(By.xpath("//*[@id='test2']/p")));
-        "//*[@id='test2']/p[1]"
-        "//p[text(), 'Test Text 5']"
-        "//p[containstext(), 'Text 5')]"
-        "//p[containstext(), '5')]"
-
-        "This is also a button"
-        "//*[@value='This is also a button']"
-        "//input[@id='buttonId']"
-        "//input[@name='randomButton2']"
-        "//input[2]"
+//        "//*[@id='test2']/p[1]"
+//        "//p[text(), 'Test Text 5']"
+//        "//p[containstext(), 'Text 5')]"
+//        "//p[containstext(), '5')]"
+//
+//        "This is also a button"
+//        "//*[@value='This is also a button']"
+//        "//input[@id='buttonId']"
+//        "//input[@name='randomButton2']"
+//        "//input[2]"
     }
 
     /*
@@ -89,27 +89,27 @@ public class Sample6Task {
 //        "Test Text 3"
 //        "This is also a button"
 
-        System.out.println(driver.findElement(By.ByCssSelector("#heading_2")).getText();
-
-        "Test Text 1"
-        ".test"
-        "p.test"
-
-
-        "Test Text 2"
-        "two.test"
-        "p.two.test"
-
-        Test Text 3
-        "#test3 p:nth-child(1)"
-        "#test3 p:nth-of-type(1)"
-
-
-        "This is also a button"
-
-        "#buttonId"
-        "[name='randomButton2']"
-        "[type='randomButton2']"
+        System.out.println(driver.findElement(By.cssSelector("#heading_2")).getText());
+//
+//        "Test Text 1"
+//        ".test"
+//        "p.test"
+//
+//
+//        "Test Text 2"
+//        "two.test"
+//        "p.two.test"
+//
+//        Test Text 3
+//        "#test3 p:nth-child(1)"
+//        "#test3 p:nth-of-type(1)"
+//
+//
+//        "This is also a button"
+//
+//        "#buttonId"
+//        "[name='randomButton2']"
+//        "[type='randomButton2']"
 
 
     }
