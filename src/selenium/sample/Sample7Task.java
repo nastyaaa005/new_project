@@ -112,11 +112,11 @@ public class Sample7Task {
         dateBox.click();
         WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));
 
-        // Clicking months back to Jul 2007
+        // Clicking 133 times to get to Jul 2007 from Aug 2018
         for (int i = 0; i < 133; i++) {
             dateWidget.findElement(By.className("ui-datepicker-prev")).click();
         }
-        // Set day to 4
+        // Set day to 4th
         dateWidget.findElement(By.xpath("//a[text()='4']")).click();
 
 //        check that correct date is added
