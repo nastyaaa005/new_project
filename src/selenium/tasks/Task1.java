@@ -42,7 +42,7 @@ public class Task1 {
     @Test
     public void errorOnNumberTooBig() {
 
-//        BUG: if I enter number 666 no errors where seen
+//        BUG: if I enter number 777 no errors where seen
 //        TODO
 //        enter number which is too big (above 100), check that correct error is seen
     }

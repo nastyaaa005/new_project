@@ -65,10 +65,7 @@ public class Sample7Task {
     @Test
     public void selectOption() throws Exception {
 //         TODO:
-//        select "Option 3" in Select
-//        check that selected option is "Option 3"
-//        select "Option 2" in Select
-//        check that selected option is "Option 2"
+
 //        click result
 //        check that 'You selected option: Option 2' text is being displayed
     }
