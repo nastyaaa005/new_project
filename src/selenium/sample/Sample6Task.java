@@ -6,7 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 public class Sample6Task {
     WebDriver driver;
@@ -41,6 +44,21 @@ public class Sample6Task {
 //        "Test Text 4"
 //        "Test Text 5"
 //        "This is also a button"
+        System.out.println("Find using xPath:");
+        System.out.println("\t 'Heading 2 text' is '" +
+                driver.findElement(By.xpath("//*[@id='heading_2']")).getText() + "'");
+        System.out.println("\t 'Test Text 1' is '" +
+                driver.findElement(By.xpath("//*[@class='test']")).getText() + "'");
+        System.out.println("\t 'Test Text 2' is '" +
+                driver.findElement(By.xpath("//*[@class='twoTest']")).getText() + "'");
+        System.out.println("\t 'Test Text 3' is '" +
+                driver.findElement(By.xpath("//*[@id = 'test3']//p")).getText() + "'");
+        System.out.println("\t 'Test Text 4' is '" +
+                driver.findElement(By.xpath("//*[@id = 'test3']//p[2]")).getText() + "'");
+        System.out.println("\t 'Test Text 5' is '" +
+                driver.findElement(By.xpath("//p[contains(text(), '5')]")).getText() + "'");
+        System.out.println("\t 'This is also a button' is '" +
+                driver.findElement(By.xpath("//*[@value='This is also a button']")).getAttribute("value") + "'");
     }
 
     @Test
@@ -52,5 +70,21 @@ public class Sample6Task {
 //        "Test Text 2"
 //        "Test Text 3"
 //        "This is also a button"
+        System.out.println("--------------------");
+        System.out.println("Find using CSS:");
+        System.out.println("\t 'Heading_2 text' is '" +
+                driver.findElement(By.cssSelector("#heading_2")).getText() + "'");
+        System.out.println("\t 'Test Text 1' is '" +
+                driver.findElement(By.cssSelector(".test")).getText() + "'");
+        System.out.println("\t 'Test Text 2' is '" +
+                driver.findElement(By.cssSelector(".twoTest")).getText() + "'");
+        System.out.println("\t 'Test Text 3' is '" +
+                driver.findElement(By.cssSelector("#test3 p")).getText() + "'");
+        System.out.println("\t 'Test Text 4' is '" +
+                driver.findElement(By.cssSelector("#test3 p:nth-child(2)")).getText() + "'");
+        System.out.println("\t 'Test Text 5' is '" +
+                driver.findElement(By.cssSelector("#test2 .test")).getText() + "'");
+        System.out.println("\t 'This is also a button' is '" +
+                driver.findElement(By.cssSelector("[value='This is also a button']")).getAttribute("value") + "'");
     }
 }
