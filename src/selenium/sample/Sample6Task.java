@@ -70,8 +70,20 @@ public class Sample6Task {
 //        "Test Text 3"
 //        "This is also a button"
 
-        System.out.println("Find element by id using CSS:");
-        System.out.println("\t text of element with id 'heading_2' is '" +
-                driver.findElement(By.cssSelector("#heading_2")).getText() + "'");
+        System.out.println ( "Find element by id using CSS:" );
+//        System.out.println("\t text of element with id 'heading_2' is '" +
+//                driver.findElement(By.cssSelector("#heading_2")).getText() + "'");
+        System.out.println ( "\t text of element with id 'heading_2' is '" +
+                driver.findElement ( By.cssSelector ( "h2#heading_2" ) ).getText ( ) + "'" );
+        System.out.println ( "\t text of element with id 'Test text 1' is '" +
+                driver.findElement ( By.cssSelector ( ".test" ) ).getText ( ) + "'" );
+        System.out.println ( "\t text of element with id 'Test text 2' is '" +
+                driver.findElement ( By.cssSelector ( ".twoTest" ) ).getText ( ) + "'" );
+        System.out.println ( "\t text of element with id 'Test text 2' is '" +
+                driver.findElement ( By.cssSelector ( "#test3 p" ) ).getText ( ) + "'" );
+        System.out.println("\t text of element with name Random button 2 is '" +
+                driver.findElement(By.cssSelector("[name='randomButton2']")).getAttribute("value") + "'");
+
+
     }
 }
