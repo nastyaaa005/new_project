@@ -89,4 +89,3 @@ public class Task1 {
         assertEquals("", driver.findElement(By.className("error")).getText());
     }
 }
-
