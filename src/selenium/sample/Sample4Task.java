@@ -37,7 +37,11 @@ public class Sample4Task {
     public void enterNumber() throws Exception {
 //         TODO:
 //        enter a number under "Number"
+
+
 //        check that button is not clickable
+
+
 //        click on "Result" button
 //        check that text is displayed
 //        check that the correct Text appears ("You entered number: "NUMBER YOU ENTERED"")
