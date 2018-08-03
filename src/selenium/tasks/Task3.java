@@ -44,7 +44,7 @@ public class Task3 {
 //        click "send"
         driver.findElement(By.cssSelector(".w3-btn-block[type='submit']")).click();
 //        check that the feedback was filled correctly
-        assertEquals(name, driver.findElement());
+        //assertEquals(name, driver.findElement());
 //        check that the button yes is green and no is red but both have white letters
     }
 }
