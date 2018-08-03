@@ -35,18 +35,53 @@ public class Sample6Task {
 //         TODO:
 ////         1-2 ways to write xapth to
 //        "Heading 2 text":
+        System.out.println("Find element by id using xPath:");
+        System.out.println("\t text of element with id 'heading_2' is '" +
+                driver.findElement(By.xpath("// *[@id='heading_2']")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 1' is '" +
+                 driver.findElement(By.xpath("//p[contains(@class,'test')]")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 2' is '" +
+                 driver.findElement(By.xpath("//p[contains(@class,'two test')]")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 3' is '" +
+                driver.findElement(By.xpath("// *[@id='test3']//p[1]")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 4' is '" +
+                driver.findElement(By.xpath("// *[@id='test4']//p[2]")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 5' is '" +
+                driver.findElement(By.xpath("//p[contains(text(),'5')]")).getText() +"'");
+        System.out.println("\t text of element with id 'buttonId' is '" +
+                driver.findElement(By.xpath("// input[@id='buttonId']")).getAttribute("value") +"'");
+
 //        "Test Text 1"
+
 //        "Test Text 2"
+
 //        "Test Text 3"
+
 //        "Test Text 4"
+
 //        "Test Text 5"
+
 //        "This is also a button"
+
+
     }
 
     @Test
     public void findElementByCssName() throws Exception {
 //         TODO:
+        System.out.println("Find element by id using css:");
+
 //         1-2 ways to write css to
+        System.out.println("\t text of element with id 'heading_2' is '" +
+                driver.findElement(By.cssSelector("h2#heading_2")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 1' is '" +
+                driver.findElement(By.cssSelector(".test")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 2' is '" +
+                driver.findElement(By.cssSelector(".twotest")).getText() +"'");
+        System.out.println("\t text of element with id 'Test Text 2' is '" +
+                driver.findElement(By.cssSelector("#test3 p")).getText() +"'");
+        System.out.println("\t text of element with name Random button 2 is '" +
+                driver.findElement(By.cssSelector("[name= 'randomButton2']")).getAttribute("value") +"'");
 //        "Heading 2 text":
 //        "Test Text 1"
 //        "Test Text 2"

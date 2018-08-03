@@ -41,19 +41,49 @@ public class Sample7Task {
     @Test
     public void selectCheckBox() throws Exception {
 //         TODO:
+        List<WebElement> manyCheckboxs = driver.findElements(By.cssSelector(".w3-check[type='checkbox']"));
+
+        for (WebElement oneCheckBox : manyCheckboxs) {
+            assertFalse(oneCheckBox.isSelected());
+        }
 //        check that none of the checkboxes are ticked
 //        tick  "Option 2"
+            WebElement option2 = driver.findElement(By.cssSelector(".w3-check[value='Option 2'][type=checkbox]"));
+            option2.click();
 //        check that "Option 1" and "Option 3' are not ticked, but "Option 2" is ticked
+            WebElement option1 = driver.findElement(By.cssSelector(".w3-check[value='Option 1'][type=checkbox]"));
+            WebElement option3 = driver.findElement(By.cssSelector(".w3-check[value='Option 3'][type=checkbox]"));
+            assertFalse(option1.isSelected());
+            assertFalse(option3.isSelected());
+            assertTrue(option2.isSelected());
 //        tick  "Option 3"
+            option3.click();
 //        click result
+            driver.findElement(By.id("result_button_checkbox")).click();
 //        check that text 'You selected value(s): Option 2, Option 3' is being displayed
+            WebElement resultText = driver.findElement(By.id("result_checkbox"));
+            assertTrue(resultText.isDisplayed());
+            assertEquals("You selected value(s): Option 2, Option 3", resultText.getText());
+
     }
 
 
     @Test
     public void selectRadioButton() throws Exception {
 //         TODO:
+            List<WebElement> manyRadios = driver.findElements(By.cssSelector(".w3-check[type='radio']"));
+
+            for (WebElement oneRadio : manyRadios) {
+                assertFalse(oneRadio.isSelected());
+            }
 //        check that none of the radio are selected
+                WebElement option3 = driver.findElement(By.id("vfb-7-3"));
+                option3.click();
+                WebElement option1 = driver.findElement(By.id("vfb-7-1"));
+                WebElement option2 = driver.findElement(By.id("vfb-7-2"));
+                assertFalse(option1.isSelected());
+                assertFalse(option2.isSelected());
+                assertTrue(option3.isSelected());
 //        select  "Option 3"
 //        check that "Option 1" and "Option 2' are not select, but "Option 3" is selected
 //        select  "Option 1"
@@ -65,8 +95,11 @@ public class Sample7Task {
     @Test
     public void selectOption() throws Exception {
 //         TODO:
+
 //        select "Option 3" in Select
+
 //        check that selected option is "Option 3"
+
 //        select "Option 2" in Select
 //        check that selected option is "Option 2"
 //        click result
