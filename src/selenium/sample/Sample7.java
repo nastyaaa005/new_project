@@ -66,7 +66,6 @@ public class Sample7 {
             radioButton.click();
             assertTrue(radioButton.isSelected()); // radio are selected
         }
-
         WebElement option2 = driver.findElement(By.cssSelector(".w3-check[value='Option 2'][type='radio'"));
         assertFalse(option2.isSelected());
         option2.click();

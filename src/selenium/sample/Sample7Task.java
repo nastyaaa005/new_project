@@ -105,24 +105,24 @@ public class Sample7Task {
 
     @Test
     public void selectOption() throws Exception {
-//         TODO:
+        //         TODO:
         Select dropdown = new Select(driver.findElement(By.id("vfb-12")));  //dropdown
         assertEquals("Choose your option", dropdown.getFirstSelectedOption().getText()); //ka ir default
-
-//        select "Option 3" in Select
-//        check that selected option is "Option 3"
+        //        select "Option 3" in Select
+        //        check that selected option is "Option 3"
         dropdown.selectByVisibleText("Option 3");
         assertEquals("Option 3", dropdown.getFirstSelectedOption().getText());
-//        select "Option 2" in Select
+        //        select "Option 2" in Select
         dropdown.selectByVisibleText("Option 2");
         assertEquals("Option 2", dropdown.getFirstSelectedOption().getText());
-//        check that selected option is "Option 2"
+        //        check that selected option is "Option 2"
         WebElement result=driver.findElement(By.cssSelector("#result_button_select"));
         WebElement resultText=driver.findElement(By.cssSelector("#result_select"));
+        //        click result
+        //       check that 'You selected option: Option 2' text is being displayed
         result.click();
         assertEquals("You selected option: Option 2", resultText.getText());
-//        click result
-//        check that 'You selected option: Option 2' text is being displayed
+
     }
 
     @Test
@@ -143,7 +143,6 @@ public class Sample7Task {
     public void chooseDateViaTextBoxBonus() throws Exception {
 //         TODO:
         String dateToEnter = "05/02/1959";
-
         WebElement dateBox = driver.findElement(By.id("vfb-8"));
         dateBox.clear();
         assertEquals("", dateBox.getAttribute("value"));

@@ -12,7 +12,6 @@ import static org.junit.Assert.assertEquals;
 
 public class Sample8 {
     WebDriver driver;
-
     // method which is being run before each test
     @Before
     public void startingTests() throws Exception {
@@ -39,7 +38,6 @@ public class Sample8 {
         assertEquals("rgba(0, 0, 0, 1)", h1.getCssValue("color"));
         assertEquals("64px", h1.getCssValue("font-size"));
         assertEquals("rgba(0, 0, 0, 0)", h1.getCssValue("background-color"));
-
         WebElement div_h1 = driver.findElement(By.xpath("//div[h1]"));
         assertEquals("rgba(241, 241, 241, 1)", div_h1.getCssValue("background-color"));
     }
