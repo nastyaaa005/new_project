@@ -81,6 +81,7 @@ public class Task1 {
 //        enter a number between 50 and 100 digit in the input (square root of which doesn't have a remainder, e.g. 2 is square root of 4),
 //        then and press submit and check that correct no error is seen and check that square root is calculated correctly
         WebElement textInput = driver.findElement(By.id("numb"));
+        WebElement err = driver.findElement(By.id ( "ch1_error" ));
         WebElement Submit = driver.findElement (By.className("w3-orange"));
         String square= "64";
         String Exp = "Square root of 64 is 8.00";
@@ -88,6 +89,8 @@ public class Task1 {
         Submit.click ();
         Alert alert = driver.switchTo().alert();
         assertEquals ( Exp, alert.getText() );
+        alert.accept ();
+        assertFalse ( err.isDisplayed () );
     }
 
     @Test
@@ -96,6 +99,7 @@ public class Task1 {
 //        enter a number between 50 and 100 digit in the input (square root of which doesn't have a remainder, e.g. 1.732.. is square root of 3) and press submit,
 //        then check that correct no error is seen and check that square root is calculated correctly
         WebElement textInput = driver.findElement(By.id("numb"));
+        WebElement err = driver.findElement(By.id ( "ch1_error" ));
         WebElement Submit = driver.findElement (By.className("w3-orange"));
         String square= "67";
         String Exp = "Square root of 67 is 8.19";
@@ -103,5 +107,7 @@ public class Task1 {
         Submit.click ();
         Alert alert = driver.switchTo().alert();
         assertEquals ( Exp, alert.getText() );
+        alert.accept ();
+        assertFalse ( err.isDisplayed () );
     }
 }
