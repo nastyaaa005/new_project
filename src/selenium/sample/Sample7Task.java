@@ -52,6 +52,12 @@ public class Sample7Task {
         assertFalse(driver.findElement(By.id("vfb-6-0")).isSelected());
         assertTrue(driver.findElement(By.id("vfb-6-1")).isSelected());
         assertFalse(driver.findElement(By.id("vfb-6-2")).isSelected());
+        /*
+        assertFalse(driver.findElement(By.cssSelector(".w3-check[value='Option 1'][type=checkbox]")).isSelected());
+        assertTrue(driver.findElement(By.cssSelector(".w3-check[value='Option 2'][type=checkbox]")).isSelected());
+        assertFalse(driver.findElement(By.cssSelector(".w3-check[value='Option 3'][type=checkbox]")).isSelected());
+         */
+
 //        tick  "Option 3"
         driver.findElement(By.id("vfb-6-2")).click();
 //        click result
