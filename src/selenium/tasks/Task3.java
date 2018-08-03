@@ -44,7 +44,18 @@ public class Task3 {
 //        click "send"
         driver.findElement(By.cssSelector(".w3-btn-block[type='submit']")).click();
 //        check that the feedback was filled correctly
-        //assertEquals(name, driver.findElement());
+        assertEquals(name, driver.findElement(By.id("name")).getText());
+        assertEquals(age, driver.findElement(By.id("age")).getText());
+        assertEquals("English", driver.findElement(By.id("language")).getText());
+        assertEquals("male", driver.findElement(By.id("gender")).getText());
+        assertEquals("Why me?", driver.findElement(By.id("option")).getText());
+        assertEquals("A comment", driver.findElement(By.id("comment")).getText());
 //        check that the button yes is green and no is red but both have white letters
+        WebElement yesButton = driver.findElement(By.cssSelector(".w3-green"));
+        WebElement noButton = driver.findElement(By.cssSelector(".w3-red"));
+        assertEquals(("rgba(76, 175, 80, 1)"), yesButton.getCssValue("background-color"));
+        assertEquals(("rgba(255, 255, 255, 1)"), yesButton.getCssValue("color"));
+        assertEquals(("rgba(244, 67, 54, 1)"), noButton.getCssValue("background-color"));
+        assertEquals(("rgba(255, 255, 255, 1)"), yesButton.getCssValue("color"));
     }
 }
