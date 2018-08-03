@@ -36,6 +36,24 @@ public class Sample4Task {
     @Test
     public void enterNumber() throws Exception {
 //         TODO:
+        WebElement textArea = driver.findElement(By.id("number"));
+        textArea.clear();
+        int num = 56;
+        String str = "You entered number: \""+56+"\"";
+        textArea.sendKeys(String.valueOf(num));
+        WebElement hideButton = driver.findElement(By.id("clear_result_button_number"));
+        WebElement showButton = driver.findElement(By.id("result_button_number"));
+        assertFalse(hideButton.isEnabled());
+        showButton.click();
+        WebElement text = driver.findElement((By.id("result_number")));
+        assertTrue(text.isDisplayed());
+        assertEquals(str, text.getText());
+        assertTrue(hideButton.isEnabled());
+        hideButton.click();
+        System.out.println("2");
+        assertEquals(str, text.getAttribute("text"));
+        assertFalse(text.isDisplayed());
+
 //        enter a number under "Number"
 //        check that button is not clickable
 //        click on "Result" button
@@ -49,6 +67,10 @@ public class Sample4Task {
     @Test
     public void clickOnLink() throws Exception {
 //         TODO:
+        assertEquals(base_url, driver.getCurrentUrl());
+        driver.findElement(By.id("homepage_link")).click();
+        assertFalse(driver.getCurrentUrl().equals(base_url));
+        assertEquals("https://kristinek.github.io/test-sample/", driver.getCurrentUrl());
 //        check current url is base_url
 //        click on "This is a link to Homepage"
 //        check that current url is not base_url

@@ -6,7 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
 
 public class Sample6Task {
     WebDriver driver;
@@ -41,6 +43,15 @@ public class Sample6Task {
 //        "Test Text 4"
 //        "Test Text 5"
 //        "This is also a button"
+       System.out.println(driver.findElement(By.xpath("//*[@id = 'heading_2']")).getText());
+        List<WebElement> allTestTexts = driver.findElements(By.xpath("//*[contains(text(),'Test Text')]"));
+        for(WebElement elementTestText : allTestTexts)
+        {
+            System.out.println(elementTestText.getText());
+        }
+        System.out.println(driver.findElement(By.xpath("//*[@id = 'buttonId']")).getAttribute("value"));
+
+
     }
 
     @Test
@@ -52,5 +63,15 @@ public class Sample6Task {
 //        "Test Text 2"
 //        "Test Text 3"
 //        "This is also a button"
+
+        System.out.println(driver.findElement(By.cssSelector("#heading_2")).getText());
+        System.out.println(driver.findElement(By.cssSelector("h2#heading_2")).getText());
+
+        System.out.println(driver.findElement(By.cssSelector("[class = 'test']")).getText());
+        System.out.println(driver.findElement(By.cssSelector("[class = 'twoTest']")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#test3 p:nth-child(1)")).getText());
+
+        System.out.println(driver.findElement(By.cssSelector("[name='randomButton2']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.cssSelector("[type='button']:nth-of-type(2)")).getAttribute("value"));
     }
 }
