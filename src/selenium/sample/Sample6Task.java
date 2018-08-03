@@ -33,24 +33,74 @@ public class Sample6Task {
     @Test
     public void findElementByXPath() throws Exception {
 //         TODO:
-////         1-2 ways to write xapth to
-//        "Heading 2 text":
+// //         1-2 ways to write xapth to
+        //        "Heading 2 text":
+        System.out.println(driver.findElement(By.xpath("//*[@id='heading_2']")).getText());
+        System.out.println(driver.findElement(By.xpath("//*[text()='Heading 2 text']")).getText());
+        System.out.println(driver.findElement(By.xpath("//h2[2]")).getText());
+
 //        "Test Text 1"
+        System.out.println(driver.findElement(By.xpath("//*[@class='test']")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[contains(@class, 'test')]")).getText());
+
 //        "Test Text 2"
+        System.out.println(driver.findElement(By.xpath("//*[@class='twoTest']")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[contains(@class, 'twoTest')]")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[text()='Test Text 2']")).getText());
+
 //        "Test Text 3"
+        System.out.println(driver.findElement(By.xpath("//*[text()='Test Text 3']")).getText());
+        System.out.println(driver.findElement(By.xpath("//*[@id='test3']//p[1]")).getText());
+
 //        "Test Text 4"
+        System.out.println(driver.findElement(By.xpath("//*[text()='Test Text 4']")).getText());
+        System.out.println(driver.findElement(By.xpath("//*[@id='test3']//p[2]")).getText());
+
 //        "Test Text 5"
+        System.out.println(driver.findElement(By.xpath("//*[@id='test2']/p")).getText());
+        System.out.println(driver.findElement(By.xpath("//*[@id='test2']/p[1]")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[text()='Test Text 5']")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[contains(text(), '5')]")).getText());
+
 //        "This is also a button"
+        System.out.println(driver.findElement(By.xpath("//*[@id='buttonId']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[@id='buttonId']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//*[@name='randomButton2']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[@name='randomButton2']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[2]")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//*[@value='This is also a button']")).getAttribute("value"));
     }
 
     @Test
     public void findElementByCssName() throws Exception {
 //         TODO:
 //         1-2 ways to write css to
+
 //        "Heading 2 text":
+        System.out.println(driver.findElement(By.cssSelector("#heading_2")).getText());
+        System.out.println(driver.findElement(By.cssSelector("h2#heading_2")).getText());
+
 //        "Test Text 1"
+        System.out.println(driver.findElement(By.cssSelector(".test")).getText());
+        System.out.println(driver.findElement(By.cssSelector("p.test")).getText());
+
 //        "Test Text 2"
+        System.out.println(driver.findElement(By.cssSelector(".twoTest")).getText());
+        System.out.println(driver.findElement(By.cssSelector("p.twoTest")).getText());
+
 //        "Test Text 3"
+        System.out.println(driver.findElement(By.cssSelector("#test3 p:nth-child(1)")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#test3 p:nth-of-type(1)")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#test3 p")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#test3 p")).getText()); //finds first element of class
+        System.out.println(driver.findElement(By.cssSelector("#test3 p.test")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#test3 > .test")).getText());
+
 //        "This is also a button"
+        System.out.println(driver.findElement(By.cssSelector("#buttonId")).getAttribute("value"));
+        System.out.println(driver.findElement(By.cssSelector("[name='randomButton2'")).getAttribute("value"));
+        System.out.println(driver.findElement(By.cssSelector("[type='button']:nth-of-type(2)")).getAttribute("value"));
+
+
     }
 }
