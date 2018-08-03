@@ -3,7 +3,9 @@ package selenium.tasks;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertTrue;
@@ -29,12 +31,20 @@ public class Task1 {
 
     @Test
     public void errorOnText() {
+        driver.findElement(By.id("numb"));
+        WebElement textInput = driver.findElement(By.id("numb"));
+        String sendKeyOne = "abcde";
+                textInput.sendKeys(sendKeyOne);
+        String originalText = "Please enter a number";
+        assertEquals(textInput.getAttribute("value"), originalText);
 //        TODO
 //        enter a text instead of a number, check that correct error is seen
     }
 
     @Test
     public void errorOnNumberTooSmall() {
+        driver.findElement(By.id("numb"));
+
 //        TODO
 //        enter number which is too small (below 50), check that correct error is seen
     }
