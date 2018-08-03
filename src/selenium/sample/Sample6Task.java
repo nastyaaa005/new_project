@@ -35,22 +35,38 @@ public class Sample6Task {
 //         TODO:
 ////         1-2 ways to write xapth to
 //        "Heading 2 text":
+        System.out.println(driver.findElement(By.xpath("//h2[@id='heading_2']")).getText());
+
+        System.out.println(driver.findElement(By.xpath("//h2[2]")).getText());
 //        "Test Text 1"
+        System.out.println(driver.findElement(By.xpath("// div[@id=\"test1\"]/p[1]")).getText());
 //        "Test Text 2"
+        System.out.println(driver.findElement(By.xpath("// div[@id=\"test1\"]/p[2]")).getText());
 //        "Test Text 3"
+        System.out.println(driver.findElement(By.xpath("// div[@id=\"test3\"]/p[1]")).getText());
 //        "Test Text 4"
+        System.out.println(driver.findElement(By.xpath("// div[@id=\"test3\"]/p[2]")).getText());
 //        "Test Text 5"
+        System.out.println(driver.findElement(By.xpath("//*[@id='buttonId']")).getAttribute("value"));
 //        "This is also a button"
+
     }
 
     @Test
     public void findElementByCssName() throws Exception {
 //         TODO:
 //         1-2 ways to write css to
+            System.out.println(driver.findElement(By.cssSelector("#heading_2")).getText());
 //        "Heading 2 text":
+        System.out.println(driver.findElement(By.cssSelector("#test1 .test")).getText());
 //        "Test Text 1"
+        System.out.println(driver.findElement(By.cssSelector("#test1 .twotest")).getText());
 //        "Test Text 2"
+        System.out.println(driver.findElement(By.cssSelector("#test3 .test")).getText());
 //        "Test Text 3"
+
+        //test3 p:nth-child(1)
+        System.out.println(driver.findElement(By.cssSelector("#buttonId")).getAttribute("value"));
 //        "This is also a button"
     }
 }

@@ -40,6 +40,7 @@ public class Sample6 {
                 driver.findElement(By.xpath("//*[@id='heading_1']")).getText() + "'");
         System.out.println("\t text of element with id 'standartText' is '" +
                 driver.findElement(By.xpath("//*[@id='standartText']")).getText() + "'");
+        //izprintē to kas ir iekšā div(abus divus)
         System.out.println("\t text of element with id 'nonStandartText' is '" +
                 driver.findElement(By.xpath("//*[@id='nonStandartText']")).getText() + "'");
 
