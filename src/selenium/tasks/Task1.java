@@ -3,7 +3,10 @@ package selenium.tasks;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertTrue;
@@ -31,6 +34,17 @@ public class Task1 {
     public void errorOnText() {
 //        TODO
 //        enter a text instead of a number, check that correct error is seen
+        WebElement enterNumber = driver.findElement(By.id("numb"));
+
+        String letters = "asdasdsad";
+
+        enterNumber.clear();
+        assertEquals(enterNumber.getAttribute("value"),"");
+        enterNumber.sendKeys(letters);
+        
+        Alert alert1 = driver.switchTo().alert();
+
+        assertEquals("Please enter a number", alert1.getText());
     }
 
     @Test
