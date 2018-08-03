@@ -16,7 +16,7 @@ public class Sample3Task {
     @Before
     public void startingTests() throws Exception {
         // from Sample 1:
-        String libWithDriversLocation =  System.getProperty("user.dir") + "\\lib\\";
+        String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
         // declaration above:
         driver = new ChromeDriver();
@@ -32,11 +32,23 @@ public class Sample3Task {
     }
 
     @Test
-    public void assertEqualsTask() throws Exception {
-//         TODO:
+
+    public void assertEqualsExampleString() throws Exception {
+        String expected = "heading_2";
+        String actual = driver.findElement(By.id("heading_2")).getText();
+        assertEquals(expected, actual);
+    }
+
+
+    //         TODO:
+
 //         check how many element with class "test" there are on page (5)
 //         check that value of second button is "This is also a button"
-    }
+
+
+int expectedNumber = 5;
+
+
 
     @Test
     public void assertTrueTask() throws Exception {
@@ -53,7 +65,14 @@ public class Sample3Task {
 
     @Test
     public void failTask() throws Exception {
+
 //        TODO:
 //        check that none of items with class "test" contain number 190
-    }
+
+//        List<WebElement> myListOfElements = driver.findElements(By.className("test"));
+//        for (WebElement myElement : myListOfElements) {
+//        System.out.println(myElement.getText());
+//        assertFalse(myElement.getText().contains("190"));
+        }
+
 }
