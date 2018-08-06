@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
-//import pages.FormPage;
+
 //import pages.ListPage;
 
 public class Task4Bonus {

@@ -54,6 +54,7 @@ public class Sample5Task {
 //        verify that the correct page is opened
     }
 
+
     @Test
     public void doNotGoToAlertedPageViaButton() throws Exception {
 //         TODO:

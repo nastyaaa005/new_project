@@ -26,20 +26,31 @@ public class Task3 {
     }
 
     @Test
-    public void feedback() {
+    public void feedback() throws Exception {
         driver.findElement(By.id("fb_name")).sendKeys("John Snow");
         driver.findElement(By.id("fb_age")).sendKeys("22");
-        driver.findElement(By.xpath("//*[contains(text(),'French')]")).click();
+        driver.findElement(By.xpath("//*[@value='English']")).click();
         driver.findElement(By.cssSelector("[value='male']")).click();
         Select selector = new Select(driver.findElement(By.id("like_us")));
         selector.selectByValue("Good");
-        driver.findElement(By.xpath("//textarea[@class='w3-input w3-border']")).sendKeys("Thanks!");
+        driver.findElement(By.xpath("//textarea[@class='w3-input w3-border']")).sendKeys("The night falls and my watch begins");
         WebElement btn = driver.findElement(By.xpath("//button[@type='submit']"));
 
-        assertEquals("rgba(33, 150, 243, 1)", btn.getCssValue("color"));
-        assertEquals("rgba(0, 0, 0, 1)", btn.getCssValue("font-color"));
+        assertEquals("rgba(33, 150, 243, 1)", btn.getCssValue("background-color"));
+        assertEquals("rgba(255, 255, 255, 1)", btn.getCssValue("color"));
         btn.click();
+        assertEquals("Your name: John Snow", driver.findElement(By.cssSelector(".description:nth-child(1)")).getText());
+        assertEquals("Your age: 22", driver.findElement(By.cssSelector(".description:nth-child(2)")).getText());
+        assertEquals("Your language: English", driver.findElement(By.cssSelector(".description:nth-child(3)")).getText());
+        assertEquals("Your genre: male", driver.findElement(By.cssSelector(".description:nth-child(4)")).getText());
+        assertEquals("Your option of us: Good", driver.findElement(By.cssSelector(".description:nth-child(5)")).getText());
+        assertEquals("Your comment: The night falls and my watch begins", driver.findElement(By.cssSelector(".description:nth-child(6)")).getText());
 
+        assertEquals("rgba(76, 175, 80, 1)", driver.findElement(By.cssSelector(".w3-green")).getCssValue("background-color"));
+        assertEquals("rgba(255, 255, 255, 1)", driver.findElement(By.cssSelector(".w3-green")).getCssValue("color"));
+
+        assertEquals("rgba(244, 67, 54, 1)", driver.findElement(By.cssSelector(".w3-red")).getCssValue("background-color"));
+        assertEquals("rgba(255, 255, 255, 1)", driver.findElement(By.cssSelector(".w3-green")).getCssValue("color"));
 
 // TODO:
 //        fill in "name", "age", select 1 or more language, select genre, select option, add a comment
