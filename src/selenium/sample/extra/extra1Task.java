@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class extra1Task {
@@ -74,5 +75,10 @@ public class extra1Task {
 //        check that text "I am here!" is seen
 //        refresh page
 //        check that text "I am here!" is not seen
+        driver.get("https://kristinek.github.io/test-sample/examples/act");
+        driver.findElement(By.id("show_text")).click();
+        assertTrue(driver.findElement(By.id("show_me")).isDisplayed());
+        driver.navigate().refresh();
+        assertFalse(driver.findElement(By.id("show_me")).isDisplayed());
     }
 }
