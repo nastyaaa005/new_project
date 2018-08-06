@@ -45,12 +45,12 @@ public class Task2 {
         // 1
         driver.findElement(By.id("start_green")).click();
         // 2
-        assertTrue(driver.findElements(By.id("start_green")).size() == 0);
+        assertTrue(driver.findElement(By.id("start_green")).isDisplayed());
         assertTrue(driver.findElement(By.id("loading_green")).isDisplayed());
         Thread.sleep(5000);
         // 3
-        assertTrue(driver.findElements(By.id("start_green")).size() == 0);
-        assertTrue(driver.findElements(By.id("loading_green")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
         assertTrue(driver.findElement(By.id("finish_green")).isDisplayed());
     }
 
@@ -67,14 +67,14 @@ public class Task2 {
         // 1
         driver.findElement(By.id("start_green")).click();
         // 2
-        assertTrue(driver.findElements(By.id("start_green")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertTrue(driver.findElement(By.id("loading_green")).isDisplayed());
         // 3
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.id("finish_green"));
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        assertTrue(driver.findElements(By.id("start_green")).size() == 0);
-        assertTrue(driver.findElements(By.id("loading_green")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
     }
 
     @Test
@@ -91,12 +91,12 @@ public class Task2 {
         // 1
         driver.findElement(By.id("start_green")).click();
         // 2
-        assertTrue(driver.findElements(By.id("start_green")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertTrue(driver.findElement(By.id("loading_green")).isDisplayed());
         // 3
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("finish_green")));
-        assertTrue(driver.findElements(By.id("start_green")).size() == 0);
-        assertTrue(driver.findElements(By.id("loading_green")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
         assertTrue(driver.findElement(By.id("finish_green")).isDisplayed());
     }
 
@@ -118,23 +118,23 @@ public class Task2 {
         // 1
         driver.findElement(By.id("start_green_and_blue")).click();
         // 2
-        assertTrue(driver.findElements(By.id("start_green_and_blue")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green_and_blue")).isDisplayed());
         assertTrue(driver.findElement(By.id("loading_green_without_blue")).isDisplayed());
         // 3
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("loading_green_with_blue")));
-        assertTrue(driver.findElements(By.id("start_green_and_blue")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green_and_blue")).isDisplayed());
         assertTrue(driver.findElement(By.id("loading_green_without_blue")).isDisplayed());
         assertTrue(driver.findElement(By.id("loading_green_with_blue")).isDisplayed());
         // 4
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("loading_blue_without_green")));
-        assertTrue(driver.findElements(By.id("start_green_and_blue")).size() == 0);
-        assertTrue(driver.findElements(By.id("loading_green_without_blue")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green_and_blue")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green_without_blue")).isDisplayed());
         assertTrue(driver.findElement(By.id("loading_blue_without_green")).isDisplayed());
         // 5
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("finish_green_and_blue")));
-        assertTrue(driver.findElements(By.id("start_green_and_blue")).size() == 0);
-        assertTrue(driver.findElements(By.id("loading_green_with_blue")).size() == 0);
-        assertTrue(driver.findElements(By.id("loading_blue_without_green")).size() == 0);
+        assertFalse(driver.findElement(By.id("start_green_and_blue")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green_without_blue")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_blue_without_green")).isDisplayed());
         assertTrue(driver.findElement(By.id("finish_green_and_blue")).isDisplayed());
     }
 
