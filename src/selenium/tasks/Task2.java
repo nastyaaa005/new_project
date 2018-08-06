@@ -70,10 +70,11 @@ public class Task2 {
         assertTrue(driver.findElements(By.id("start_green")).size() == 0);
         assertTrue(driver.findElement(By.id("loading_green")).isDisplayed());
         // 3
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.findElement(By.id("finish_green"));
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         assertTrue(driver.findElements(By.id("start_green")).size() == 0);
         assertTrue(driver.findElements(By.id("loading_green")).size() == 0);
-        assertTrue(driver.findElement(By.id("finish_green")).isDisplayed());
     }
 
     @Test
