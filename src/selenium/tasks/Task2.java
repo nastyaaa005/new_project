@@ -5,14 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class Task2 {
     WebDriver driver;
@@ -40,6 +40,14 @@ public class Task2 {
          * and loading text is not seen,
          * success is seen instead
          */
+        driver.findElement(By.id("start_green")).click();
+        assertTrue(driver.findElement(By.id("start_green")).isDisplayed());
+        assertTrue(driver.findElement(By.id("loading_green")).isDisplayed());
+        Thread.sleep(5000);
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
+        assertTrue(driver.findElement(By.id("finish_green")).isDisplayed());
+
     }
 
     @Test
@@ -52,6 +60,16 @@ public class Task2 {
          * and loading text is not seen,
          * success is seen instead
          */
+        driver.findElement(By.id("start_green")).click();
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertTrue(driver.findElement(By.id("loading_green")).isDisplayed());
+
+        driver.findElement(By.id("finish_green"));
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
+
+
     }
 
     @Test
@@ -64,6 +82,15 @@ public class Task2 {
          * and loading text is not seen,
          * success is seen instead
          */
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        driver.findElement(By.id("start_green")).click();
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertTrue(driver.findElement(By.id("loading_green")).isDisplayed());
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("finish_green")));
+        assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
+        assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
+
     }
 
     @Test
