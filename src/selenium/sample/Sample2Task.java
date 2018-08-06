@@ -67,4 +67,6 @@ public class Sample2Task {
 //         get third text of class "test" (should be "Test Text 4")
         System.out.println(webElements.get(2).getText());
     }
+
+
 }
