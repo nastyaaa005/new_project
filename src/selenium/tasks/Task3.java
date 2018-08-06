@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.Assert.assertEquals;
 
@@ -27,10 +28,44 @@ public class Task3 {
     @Test
     public void feedback() {
 // TODO:
+        String name = "D";
+        String age = "21";
+
 //        fill in "name", "age", select 1 or more language, select genre, select option, add a comment
+
+        driver.findElement(By.id(("fb_name"))).sendKeys(name);
+        driver.findElement(By.id(("fb_age"))).sendKeys(age);
+        driver.findElement(By.cssSelector(".w3-check[type='checkbox'][value='English']")).click();
+        driver.findElement(By.cssSelector("[value=\"male\"]")).click();
+        Select dropdown = new Select(driver.findElement(By.name("option")));
+        dropdown.selectByVisibleText("Why me?");
+        driver.findElement(By.name("comment")).sendKeys("TESTING words words words");
+
+
 //        check that the button send is blue with white letters
+        WebElement sButton = driver.findElement(By.cssSelector(".w3-btn-block[type='submit']"));
+        assertEquals ("rgba(33, 150, 243, 1)",sButton.getCssValue ( "background-color" ));
+        assertEquals ("rgba(255, 255, 255, 1)",sButton.getCssValue ( "color" ));
+
 //        click "send"
+        driver.findElement(By.cssSelector(".w3-btn-block[type='submit']")).click();
+
 //        check that the feedback was filled correctly
+        assertEquals(name, driver.findElement(By.id("name")).getText());
+        assertEquals(age, driver.findElement(By.id("age")).getText());
+        assertEquals("English", driver.findElement(By.id("language")).getText());
+        assertEquals("male", driver.findElement(By.id("gender")).getText());
+        assertEquals("Why me?", driver.findElement(By.id("option")).getText());
+        assertEquals("TESTING words words words", driver.findElement(By.id("comment")).getText());
+
 //        check that the button yes is green and no is red but both have white letters
+        WebElement yesButton = driver.findElement(By.cssSelector(".w3-green"));
+        WebElement noButton = driver.findElement(By.cssSelector(".w3-red"));
+        assertEquals(("rgba(76, 175, 80, 1)"), yesButton.getCssValue("background-color"));
+        assertEquals(("rgba(255, 255, 255, 1)"), yesButton.getCssValue("color"));
+        assertEquals(("rgba(244, 67, 54, 1)"), noButton.getCssValue("background-color"));
+        assertEquals(("rgba(255, 255, 255, 1)"), yesButton.getCssValue("color"));
+
+
     }
 }
