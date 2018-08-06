@@ -94,6 +94,7 @@ public class Task3 {
         WebElement comment = driver.findElement(By.name("comment"));
         String myComment = "no comments";
         comment.sendKeys(myComment);
+        assertTrue(comment.isDisplayed());
         assertEquals(myComment, comment.getAttribute("value"));
 
 
