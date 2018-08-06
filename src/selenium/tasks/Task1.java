@@ -62,7 +62,7 @@ public class Task1 {
     @Test
     public void errorOnNumberTooBig() {
 
-//        BUG: if I enter number 666 no errors where seen
+
 //        TODO
 //        enter number which is too big (above 100), check that correct error is seen
         WebElement textInput = driver.findElement(By.id("numb"));
@@ -76,6 +76,21 @@ public class Task1 {
     }
 
     @Test
+    public void errorOnNumberTooBigCheckingKnownBug() {
+
+//        BUG: if I enter number 666 no errors where seen
+        WebElement textInput = driver.findElement ( By.id ( "numb" ) );
+        String sendKeyOne = "666";
+        textInput.sendKeys ( sendKeyOne );
+        WebElement button = driver.findElement ( By.cssSelector ( "button.w3-margin" ) );
+        button.click ( );
+        WebElement error = driver.findElement ( By.id ( "ch1_error" ) );
+        String originalText = "Number is too big";
+        assertEquals ( originalText, error.getText ( ) );
+    }
+
+
+        @Test
     public void correctSquareRootWithoutRemainder() {
 //        TODO
 //        enter a number between 50 and 100 digit in the input (square root of which doesn't have a remainder, e.g. 2 is square root of 4),
