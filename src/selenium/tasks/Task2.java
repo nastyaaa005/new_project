@@ -75,7 +75,7 @@ public class Task2 {
         assertTrue(myGreen.isDisplayed());
         assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
-  //      assertEquals(myGreen.getText(), "Green Loaded");
+        assertEquals(myGreen.getText(), "Green Loaded");
     }
 
     @Test
