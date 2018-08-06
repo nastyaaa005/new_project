@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class extra1Task {
     WebDriver driver;
@@ -42,6 +43,11 @@ public class extra1Task {
 //        check that the url now "https://kristinek.github.io/test-sample/examples/po1"
 //        using driver navigation go back to "https://kristinek.github.io/test-sample/examples/po"
 //        check that the page now is "https://kristinek.github.io/test-sample/examples/po"
+        driver.get("https://kristinek.github.io/test-sample/examples/po");
+        driver.findElement(By.cssSelector(".w3-pale-red a")).click();
+        assertEquals("https://kristinek.github.io/test-sample/examples/po1", driver.getCurrentUrl());
+        driver.navigate().back();
+        assertEquals("https://kristinek.github.io/test-sample/examples/po", driver.getCurrentUrl());
     }
 
     @Test
