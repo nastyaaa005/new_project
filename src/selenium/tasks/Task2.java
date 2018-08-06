@@ -131,7 +131,7 @@ public class Task2 {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#finish_green_and_blue")));
         assertTrue(driver.findElement(By.cssSelector("#finish_green_and_blue")).isDisplayed());
         assertEquals(driver.findElement(By.cssSelector("#finish_green_and_blue")).getText(),"Green and Blue Loaded");
-        
+
     }
 
 }

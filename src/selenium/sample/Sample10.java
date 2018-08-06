@@ -17,6 +17,7 @@ import selenium.pages.PageSample;
 public class Sample10 {
     static WebDriver driver = new FirefoxDriver();
     static long startTime;
+
     static PageSample subPage = PageFactory.initElements(driver, PageSample.class);
     static MainPageSample mainPage = PageFactory.initElements(driver, MainPageSample.class);
 

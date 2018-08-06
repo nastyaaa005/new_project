@@ -13,6 +13,7 @@ public class MainPageSample extends GenericPageSample {
     private List<WebElement> headerLinks;
     @FindBy(how = How.CSS, using = ".w3-container > h2")
     private List<WebElement> headers;
+
     @FindBy(how = How.CSS, using = ".w3-container > .description")
     private List<WebElement> descriptions;
 
