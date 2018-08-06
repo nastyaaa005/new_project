@@ -15,6 +15,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class Task3 {
     WebDriver driver;
@@ -98,46 +99,41 @@ public class Task3 {
         assertEquals("Name is incorrect after return", pName, driver.findElement(By.cssSelector("#fb_name")).getAttribute("value"));
         assertEquals("Age is not correct after return", pAge, driver.findElement(By.cssSelector("#fb_age")).getAttribute("value"));
 
+        List<WebElement> langs = driver.findElements(By.cssSelector("input[class = 'w3-check'][type = 'checkbox']"));
 
-        for (String e : pLanguages) {
-            switch (e) {
-                case "English":
-                    WebElement checkBoxEng = driver.findElement
-                            (By.cssSelector("input[class = 'w3-check'][type = 'checkbox'][value='English']"));
-                    assertTrue(checkBoxEng.isSelected());
-                    break;
-                case "French":
-                    WebElement checkBoxFre = driver.findElement
-                            (By.cssSelector("input[class = 'w3-check'][type = 'checkbox'][value='French']"));
-                    assertTrue(checkBoxFre.isSelected());
-                    break;
-                case "Spanish":
-                    WebElement checkBoxSpa = driver.findElement
-                            (By.cssSelector("input[class = 'w3-check'][type = 'checkbox'][value='Spanish']"));
-                    assertTrue(checkBoxSpa.isSelected());
-                    break;
-                case "Chinese":
-                    WebElement checkBoxCha = driver.findElement
-                            (By.cssSelector("input[class = 'w3-check'][type = 'checkbox'][value='Chinese']"));
-                    assertTrue(checkBoxCha.isSelected());
-                    break;
-
+        for (WebElement e : langs){
+            Boolean isSelected = false;
+            for (String s : pLanguages){
+              if (e.getAttribute("value").equalsIgnoreCase(s)){
+                    isSelected = true;
+                }
+            }
+            if(isSelected){
+                assertTrue(e.isSelected());
+            }else{
+                assertFalse(e.isSelected());
             }
         }
 
-        WebElement radio;
-        switch (pGender){
-            case "male":
-                radio = driver.findElement(By.cssSelector("input[type='radio'][name='gender'][value='male']"));
-                assertTrue(radio.isSelected());
-                break;
-            case "female":
-                radio = driver.findElement(By.cssSelector("input[type='radio'][name='gender'][value='female']"));
-                assertTrue(radio.isSelected());
-                break;
+
+        WebElement radioMale = driver.findElement(By.cssSelector("input[type='radio'][name='gender'][value='male']"));
+        WebElement radioFemale = driver.findElement(By.cssSelector("input[type='radio'][name='gender'][value='female']"));
+        if(pGender.equalsIgnoreCase("male")){
+              assertTrue(radioMale.isSelected());
+              assertFalse(radioFemale.isSelected());
+        }
+        else{
+            if(pGender.equalsIgnoreCase("female")){
+                assertFalse(radioMale.isSelected());
+                assertTrue(radioFemale.isSelected());
+            }
+            else{
+                assertFalse(radioMale.isSelected());
+                assertFalse(radioFemale.isSelected());
+            }
         }
 
-
+      
         Select dropdown = new Select(driver.findElement(By.id("like_us")));
         assertEquals(pLikeUs, dropdown.getFirstSelectedOption().getAttribute("value"));
 
