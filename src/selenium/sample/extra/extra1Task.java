@@ -58,6 +58,12 @@ public class extra1Task {
 //        using driver navigation go back to "https://kristinek.github.io/test-sample/examples/po"
 //        using driver navigation go forward to "https://kristinek.github.io/test-sample/examples/po1"
 //        check that the page now is "https://kristinek.github.io/test-sample/examples/po1"
+        driver.get("https://kristinek.github.io/test-sample/examples/po");
+        driver.findElement(By.cssSelector(".w3-pale-red a")).click();
+        driver.navigate().back();
+        assertEquals("https://kristinek.github.io/test-sample/examples/po", driver.getCurrentUrl());
+        driver.navigate().forward();
+        assertEquals("https://kristinek.github.io/test-sample/examples/po1", driver.getCurrentUrl());
     }
 
     @Test
