@@ -35,12 +35,26 @@ public class Sample6Task {
 //         TODO:
 ////         1-2 ways to write xapth to
 //        "Heading 2 text":
+        System.out.println("\t text of element with id 'heading_2' is '" +
+                driver.findElement(By.xpath("//*[@id='heading_2']")).getText() + "'");
 //        "Test Text 1"
+        System.out.println("\t text of element with class 'test' is '" +
+                driver.findElement(By.xpath("//*[@class='test']")).getText() + "'");
 //        "Test Text 2"
+        System.out.println("\t text of element which contains text 'Text 2' is '" +
+                driver.findElement(By.xpath("//*[contains(text(), 'Test Text 2')]")).getText() + "'");
 //        "Test Text 3"
+        System.out.println("\t text of element with class 'test' is '" +
+                driver.findElement(By.xpath("//*[@id='test3']//p[1]")).getText() + "'");
 //        "Test Text 4"
+        System.out.println("\t text of element with class 'test' is '" +
+                driver.findElement(By.xpath("//*[@id='test3']//p[2]")).getText() + "'");
 //        "Test Text 5"
+        System.out.println("\t text of element with class 'test' is '" +
+                driver.findElement(By.xpath("//*[@id='test2']//p[1]")).getText() + "'");
 //        "This is also a button"
+        System.out.println("\t name of element with value 'This is also a button' is '" +
+                driver.findElement(By.xpath("//*[@value='This is also a button']")).getAttribute("name") + "'");
     }
 
     @Test
@@ -50,6 +64,7 @@ public class Sample6Task {
 //        "Heading 2 text":
 //        "Test Text 1"
 //        "Test Text 2"
+
 //        "Test Text 3"
 //        "This is also a button"
     }
