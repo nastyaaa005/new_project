@@ -48,7 +48,7 @@ public class Task2 {
         driver.findElement(By.id("start_green")).click();
         assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertEquals(driver.findElement(By.id("loading_green")).getText(), "Loading green...");
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
         assertEquals(driver.findElement(By.id("finish_green")).getText(), "Green Loaded");
@@ -79,7 +79,7 @@ public class Task2 {
     }
 
     @Test
-    public void loadGreenExplicitWait() throws Exception {
+    public void loadGreenExplicitWait() {
         /* TODO:
          * 1) click on start loading green button
          * 2) check that button does not appear,
@@ -93,11 +93,6 @@ public class Task2 {
         driver.findElement(By.id("start_green")).click();
         assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertEquals(driver.findElement(By.id("loading_green")).getText(), "Loading green...");
-
-        //myNewWait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.id("loading_green"))));
-//        OR
-//        myNewWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("finish_green"))));
-//        OR
         myNewWait.until(ExpectedConditions.presenceOfElementLocated(By.id("finish_green")));
         assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
