@@ -90,7 +90,7 @@ public class Task2 {
         assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertEquals(driver.findElement(By.id("loading_green")).getText(), "Loading green...");
 
-     
+
         myNewWait.until(ExpectedConditions.presenceOfElementLocated(By.id("finish_green")));
         assertFalse(driver.findElement(By.id("start_green")).isDisplayed());
         assertFalse(driver.findElement(By.id("loading_green")).isDisplayed());
