@@ -48,7 +48,7 @@ public class Sample9 {
     @Test
     public void sleepExample() throws Exception {
         Thread.sleep(10000);
-        magicTextCheck();
+        magicTextCheck();   // pārbauda vai pēc 10 sekundēm teksts ir mainījies
     }
 
     @Test
@@ -74,7 +74,6 @@ public class Sample9 {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='magic_text']/*[text()=\"What is this magic? It's dev magic~\"]")));
         magicTextCheck();
     }
-
     @Test
     public void explicitWaitExample3() throws Exception {
         driver.get("https://kristinek.github.io/test-sample/examples/al_p");
