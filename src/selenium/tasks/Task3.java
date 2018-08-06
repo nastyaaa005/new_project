@@ -39,7 +39,7 @@ public class Task3 {
         WebElement selectLanguage = driver.findElement(By.cssSelector(".w3-check[value='English'][type='checkbox'"));
         WebElement selectGender = driver.findElement(By.cssSelector(".w3-radio[value='female'][type='radio'"));
         WebElement likeDropDown = driver.findElement(By.cssSelector("#like_us option:nth-child(2)"));
-        WebElement inputComment = driver.findElement(By.className("w3-input"));
+        WebElement inputComment = driver.findElement(By.xpath("//textarea"));
         WebElement sendButton = driver.findElement(By.className("w3-blue"));
         String name = "Leila";
         String age = "25";
