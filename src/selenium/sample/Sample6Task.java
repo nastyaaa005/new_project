@@ -35,6 +35,8 @@ public class Sample6Task {
 //         TODO:
 ////         1-2 ways to write xapth to
 //        "Heading 2 text":
+
+
         System.out.println(driver.findElement(By.xpath("//*[@id='heading_2']")).getText());
         System.out.println(driver.findElement(By.xpath("//h2[2]")).getText());
 
@@ -65,12 +67,57 @@ public class Sample6Task {
         System.out.println(driver.findElement(By.xpath("//input[@id='buttonId']")).getAttribute("value"));
         System.out.println(driver.findElement(By.xpath("//input[@name='randomButton2']")).getAttribute("value"));
         System.out.println(driver.findElement(By.xpath("//input[2]")).getAttribute("value"));
+
+
+
     }
 
     @Test
     public void findElementByCssName() throws Exception {
 //         TODO:
 //         1-2 ways to write css to
+
+        //*[@class='text amazing']; //p[contains(text(), 'amazing'); //p[text()='amazing sample text']
+        System.out.println(driver.findElement(By.xpath("//*[@class='text amazing']")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[contains(text(), 'amazing')]")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[text()='amazing sample text']")).getText());
+
+        //*[@id='dummy']; //p[contains(text(), 'dummy'); //p[text()='dummy text']
+        System.out.println(driver.findElement(By.xpath("//*[@id='dummy']")).getText());
+        System.out.println(driver.findElement(By.xpath("//p[contains(text(), 'dummy')]")).getText());
+
+        //dummy css
+        System.out.println(driver.findElement(By.cssSelector("#dummy")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#nonStandartText p:nth-child(3)")).getText());
+
+
+        // #standartText p:nth-child(2); #standartText p:nth-of-type(2)
+        System.out.println(driver.findElement(By.cssSelector("#standartText p:nth-child(2)")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#standartText p:nth-of-type(2)")).getText());
+
+        // p.amazing; #nonStandartText p:nth-child(2);
+        System.out.println(driver.findElement(By.cssSelector("p.amazing")).getText());
+        System.out.println(driver.findElement(By.cssSelector("#nonStandartText p:nth-child(2)")).getText());
+
+        //button xpath
+        System.out.println(driver.findElement(By.xpath("//*[@value='This is a button']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[@name='randomButton1']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[1]")).getAttribute("value"));
+
+        //button css
+        System.out.println(driver.findElement(By.cssSelector("[name='randomButton1']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.cssSelector("[type='button']:nth-of-type(1)")).getAttribute("value"));
+
+        //Heading1 xpath
+        System.out.println(driver.findElement(By.xpath("//*[@id='heading_1']")).getText());
+        System.out.println(driver.findElement(By.xpath("//h2[1]")).getText());
+
+        //Heading1 css
+        System.out.println(driver.findElement(By.cssSelector("#heading_1")).getText());
+        System.out.println(driver.findElement(By.cssSelector("h2#heading_1")).getText());
+
+
+
 //        "Heading 2 text":
         System.out.println(driver.findElement(By.cssSelector("#heading_2")).getText());
         System.out.println(driver.findElement(By.cssSelector("h2#heading_2")).getText());
@@ -90,6 +137,9 @@ public class Sample6Task {
         System.out.println(driver.findElement(By.cssSelector("#test3 .test")).getText());
         System.out.println(driver.findElement(By.cssSelector("#test3 > .test")).getText());
         System.out.println(driver.findElement(By.cssSelector("#test3 p.test")).getText());
+
+        //Sample text 2
+
 
 //        "This is also a button"
         System.out.println(driver.findElement(By.cssSelector("#buttonId")).getAttribute("value"));
